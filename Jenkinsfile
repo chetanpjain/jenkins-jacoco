@@ -29,14 +29,14 @@ pipeline {
                 echo 'Sonar Scanner'
                	//def scannerHome = tool 'SonarQube Scanner 3.0'
 			    withSonarQubeEnv('jenkins-sonar') {
-			    	sh 'mvn clean package sonar:sonar'
+			    	sh '/opt/apache-maven-3.6.0/bin/mvn clean package sonar:sonar'
 			    }
             }
         }
         stage('Package') {
             steps {
                 echo 'Packaging'
-                sh 'mvn package -DskipTests'
+                sh '/opt/apache-maven-3.6.0/bin/mvn package -DskipTests'
             }
         }
         stage('Deploy') {
