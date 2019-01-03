@@ -9,13 +9,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Clean Build'
-                sh 'mvn clean compile'
+                sh '/opt/apache-maven-3.6.0/bin/mvn clean compile'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing'
-                sh 'mvn test'
+                sh '/opt/apache-maven-3.6.0/bin/mvn test'
             }
         }
         stage('JaCoCo') {
